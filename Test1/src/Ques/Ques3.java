@@ -1,47 +1,38 @@
 /*Question:
-Write a Program to determine if the given number is Armstrong number or not. Print true if number is armstrong, otherwise print false.
-An Armstrong number is a number (with digits n) such that the sum of its digits raised to nth power is equal to the number itself.
-For example,
-371, as 3^3 + 7^3 + 1^3 = 371
-1634, as 1^4 + 6^4 + 3^4 + 4^4 = 1634
-Input Format :
-Integer n
+Print the following pattern for given number of rows.
+Input format :
+Integer N (Total number of rows)
 Output Format :
-true or false
-Sample Input 1 :
-1
-Sample Output 1 :
-true
-Sample Input 2 :
-103
-Sample Output 2 :
-false
+Pattern in N lines
+Sample Input :
+   5
+Sample Output :
+ 5432*
+ 543*1
+ 54*21
+ 5*321
+ *4321
 */
 
 
-package Ques;
+import java.util.Scanner;
+public class runner {
 
-public class Ques3 {
-
-	public static boolean SplitArr(int arr[], int sum1, int sum2, int str) {
-		if(str == arr.length) {
-			return sum1 == sum2;
-		}
-		if(arr[str]%5==0) {
-			sum1 +=arr[str];
-		}
-		else if(arr[str]%3 == 0) {
-			sum2 += arr[str];
-		}
-		else {
-			return SplitArr(arr, sum1+arr[str], sum2, str)||SplitArr(arr, sum1, sum2+arr[str], str+1);
-		}
-		return SplitArr(arr, sum1, sum2, str+1);
-	}
-	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		// Write your code here
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        for(int i = 1; i<=n; i++){
+            for(int j = 1; j<=n; j++){
+                if(j == (n-i+1)){
+                    System.out.print("*");
+                }
+                else{
+                    System.out.print(n-j+1);
+                }
+            }
+            System.out.println();
+        }
 	}
-
 }
+
