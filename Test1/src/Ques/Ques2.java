@@ -25,24 +25,42 @@ Sample Output 2 :
 0000***0000
 */
 
-package Ques;
+import java.util.Scanner;
+public class Solution {
 
-import java.util.Arrays;
-
-public class Ques2 {
-	
-	public static int MaxProfit(int arr[]) {
-		Arrays.sort(arr);
-		int max = Integer.MIN_VALUE;
-		for(int i = 0; i<arr.length; i++) {
-			max = Math.max(max, arr[i]*arr.length-i);
-		}
-		return max;
-	}
-	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-	}
+		/*  Read input as specified in the question.
+    		 * Print output as specified in the question.
+    		 */
+		Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        int i;
+        int j;
+        for(i = 1; i <=n; i++){
+            for(j = 1; j<=(n); j++){
+                if(i == j){
+                    System.out.print("*");
+                }
+                else{
+                    System.out.print(0);
+                }
+            }
+            j--;
+            System.out.print("*");
+            while(j>=1){
+                if(i==j){
+                    System.out.print("*");
+                }
+                else{
+                    System.out.print(0);
+                }
+                j--;
+            }
+            System.out.println();
+        }
+	}	
+
 
 }
+
