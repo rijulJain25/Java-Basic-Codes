@@ -1,44 +1,56 @@
 /*QUESTION:
-Print the following pattern for given number of rows.
-
-Input format :
-Integer N (Total number of rows)
-
+Write a Program to determine if the given number is Armstrong number or not. Print true if number is armstrong, otherwise print false.
+An Armstrong number is a number (with digits n) such that the sum of its digits raised to nth power is equal to the number itself.
+For example,
+371, as 3^3 + 7^3 + 1^3 = 371
+1634, as 1^4 + 6^4 + 3^4 + 4^4 = 1634
+Input Format :
+Integer n
 Output Format :
-Pattern in N lines
-
-Sample Input :
-   5
-Sample Output :
- 5432*
- 543*1
- 54*21
- 5*321
- *4321
+true or false
+Sample Input 1 :
+1
+Sample Output 1 :
+true
+Sample Input 2 :
+103
+Sample Output 2 :
+false
 */
 
-package Ques;
+import java.util.Scanner;
 
-public class Ques1 {
-	
-	public static boolean DoesSContainT(String s, String t) {
-		if(s.length() == 0) {
-			return false;
-		}
-		if(t.length() == 0) {
-			return true;
-		}
-		if(s.charAt(0) == t.charAt(0)) {
-			return DoesSContainT(s.substring(1), t.substring(1));
-		}
-		else {
-			return DoesSContainT(s.substring(1), t);
-		}
-	}
+public class Main {
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		// Write your code here
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        int x;
+        int y = n;
+        int ams = 0;
+        int j;
+        if(y == 0){
+            System.out.println(true);
+            return;
+        }
+        int count = 0;
+        while(y > 0){
+            j = y%10;
+            y = y/10;
+            count++;
+        }
+        y = n;
+        while(y>0){
+            x = y%10;
+            ams += Math.pow(x, count);
+            y = y/10;
+        }
+        if(ams == (n)){
+            System.out.println(true);
+        }
+        else{
+            System.out.println(false);
+        }
 	}
-
 }
